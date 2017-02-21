@@ -42,7 +42,7 @@
         var editingRegex = new RegExp(productUrl + "/[0-9][0-9]*", '');
         $httpBackend.whenGET(editingRegex).respond(function (method, url, data) {
             var product = {"productId" : 0};
-            var parameters = url.splice('/');
+            var parameters = url.split('/');
             var length = parameters.length;
             var id = parameters[length - 1];
 

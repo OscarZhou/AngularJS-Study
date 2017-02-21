@@ -7,23 +7,13 @@
     angular
         .module("productManagement")
         .controller("ProductDetailCtrl",
-                    ProductDetailCtrl);
+                    ["product",
+                        ProductDetailCtrl]);
 
-    function ProductDetailCtrl() {
+    function ProductDetailCtrl(product) {
         var vm = this;
 
-        vm.product = {
-            "productId": 2,
-            "productName": "Garden Cart",
-            "productCode": "GDN-0023",
-            "releaseDate": "March 18, 2010",
-            "description": "15 gallon capacity rolling garden cart",
-            "cost": 20.00,
-            "price": 32.99,
-            "category": "garden",
-            "tags": ["barrow", "cart", "wheelbarrow"],
-            "imageUrl": "https://openclipart.org/download/58471/garden-cart.svg"
-        };
+        vm.product = product;
 
         vm.title = "Product Detail: " + vm.product.productName;
 
