@@ -45,7 +45,7 @@
                             })
                             .state("productEdit.info", {
                                 url: "/info",
-                                templateUrl: "app/products/productEditInfoView.html",
+                                templateUrl: "app/products/productEditInfoView.html"
                             })
                             .state("productEdit.price", {
                                 url: "/price",
