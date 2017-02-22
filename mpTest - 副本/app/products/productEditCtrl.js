@@ -12,6 +12,7 @@
         .module("productManagement")
         .controller("ProductEditCtrl",
             ["product",
+                "$state",
                 ProductEditCtrl]);
 
     function ProductEditCtrl(product, $state) {
