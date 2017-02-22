@@ -14,7 +14,7 @@
             ["product",
                 ProductEditCtrl]);
 
-    function ProductEditCtrl(product) {
+    function ProductEditCtrl(product, $state) {
         var vm = this;
 
         vm.product = product;
@@ -24,6 +24,21 @@
         }
         else{
             vm.title = "New Product"
+        }
+
+        vm.open = function ($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+
+            vm.opened = !vm.opened;
+        }
+
+        vm.submit = function () {
+            vm.product.$save();
+        }
+
+        vm.cancel = function () {
+            $state.go('productList');
         }
     }
 }());
