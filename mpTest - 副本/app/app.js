@@ -11,6 +11,7 @@
                                 "ui.router",
                                 "ui.mask",
                                 "ui.bootstrap",
+                                "angularCharts",
                             "productResourceMock"]);
 
     app.config(["$stateProvider",
@@ -48,7 +49,7 @@
                                 templateUrl: "app/products/productEditInfoView.html"
                             })
                             .state("productEdit.price", {
-                                url: "/price",
+                                url: "/prices",
                                 templateUrl: "app/products/productEditPriceView.html"
                             })
                             .state("productEdit.tags", {
@@ -64,6 +65,18 @@
                                     product: function (productResource, $stateParams) {
                                         var productId = $stateParams.productId;
                                         return productResource.get({ productId: productId}).$promise;
+                                    }
+                                }
+                            })
+                            .state("priceAnalytics", {
+                                url:"/priceAnalytics",
+                                templateUrl:"app/prices/priceAnalyticsView.html",
+                                controller: "PriceAnalyticsCtrl",
+                                resolve: {
+                                    productResource: "productResource",
+
+                                    products: function (productResource) {
+                                        return productResource.query().$promise;
                                     }
                                 }
                             })

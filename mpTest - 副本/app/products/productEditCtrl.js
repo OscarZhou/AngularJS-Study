@@ -26,7 +26,7 @@
             return productService.calculateMarginPercent(vm.product.price, vm.product.cost);
         };
 
-        /* Calculate the price based on a markup */
+        /* Calculate the prices based on a markup */
         vm.calculatePrice=function () {
             var price = 0;
             if(vm.priceOption == 'amount'){
