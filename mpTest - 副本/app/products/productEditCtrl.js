@@ -12,11 +12,10 @@
         .module("productManagement")
         .controller("ProductEditCtrl",
             ["product",
-                "$state",
                 "productService",
                 ProductEditCtrl]);
 
-    function ProductEditCtrl(product, $state, productService) {
+    function ProductEditCtrl(product, productService) {
         var vm = this;
 
         vm.product = product;
